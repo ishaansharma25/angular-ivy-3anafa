@@ -1,4 +1,35 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<hello name="Candidates"></hello>
+<!-- <table mat-table class=" mat-elevation-z8">
+  <ng-container matColumnDef="position">
+    <th>#
+    </th>
+    <td><B>First Name</B></td>
+  </ng-container>
+  <ng-container matColumnDef="position">
+    <td><B>Last Name</B></td>
+  </ng-container>
+  </table> -->
+
+<table mat-table class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+      The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <thead>
+    <tr>
+      <th class="text-left" *ngFor="let column of displayColumns">
+        {{column.name}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let list of userInfoList ; let i=index">
+      <td *ngFor="let key of list | keyvalue">
+        {{key.value}}
+      </td>
+    </tr>
+  </tbody>
+  <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>  -->
+  <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+</table>
